@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Gumroad Playbook 2026 — build &amp; automate a Gumroad business</title>
+<meta name="description" content="14-chapter operating manual + working Python v2-API toolkit, verified against the live Gumroad API in October 2026. $29, instant delivery.">
+<meta property="og:title" content="The Gumroad Playbook 2026">
+<meta property="og:description" content="The only Gumroad guide written against the live v2 API — fees, payouts, Discover, licensing, webhooks, and a stdlib-only Python toolkit that runs on any Python 3.8+.">
+<meta property="og:type" content="product">
+<style>
+:root{--bg:#0f0a14;--card:#1a1226;--pink:#ff2e88;--pink2:#ffa9cd;--txt:#efeaf5;--mut:#9d93ad;--line:#2c2140}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--txt);font:16px/1.6 -apple-system,'Segoe UI',Roboto,sans-serif}
+.wrap{max-width:860px;margin:0 auto;padding:40px 24px}
+h1{font-size:40px;line-height:1.15;margin-bottom:8px}
+h1 .p{color:var(--pink)}
+.sub{color:var(--mut);font-size:19px;margin-bottom:28px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:30px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+.card h3{font-size:15px;color:var(--pink2);margin-bottom:8px;letter-spacing:.04em;text-transform:uppercase}
+.card p{font-size:15px;color:var(--txt)}
+.buy{display:inline-block;background:var(--pink);color:#fff;font-weight:700;font-size:20px;padding:16px 34px;border-radius:12px;text-decoration:none;margin:8px 0}
+.buy:hover{filter:brightness(1.1)}
+.code{font-size:13px}
+pre{background:#0a070f;border:1px solid var(--line);border-radius:10px;padding:14px;overflow:auto;font-size:13px;color:#cfc4e6;margin:12px 0}
+a{color:var(--pink2)}
+.foot{color:var(--mut);font-size:13px;margin-top:40px;border-top:1px solid var(--line);padding-top:16px}
+.big{font-size:22px;font-weight:700;margin:26px 0 6px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>The Gumroad <span class="p">Playbook 2026</span></h1>
+<p class="sub">The only Gumroad guide written <em>against the live v2 API</em> — every fee, payout rule, and endpoint verified against <code>api.gumroad.com/v2</code> and the open-source codebase in October 2026. No recycled blog posts. Ships with a working Python toolkit.</p>
+
+<a class="buy" href="https://yuhanbreeze.gumroad.com/l/qmhyqi">Get the book + toolkit → $29</a>
+<span style="color:var(--mut)">Use code <b>LAUNCH50</b> for 50% off (launch price $14.50). Instant delivery.</span>
+
+<div class="grid">
+<div class="card"><h3>What's inside</h3><p>14 chapters: foundations, product page conversion, the full v2 API, file uploads, licensing, webhooks (Ping), sales, payouts, Discover eligibility, and a 90-day growth plan.</p></div>
+<div class="card"><h3>The toolkit</h3><p>A stdlib-only Python client (<code>gumroad.py</code>) covering all 81 v2 endpoints — auto-paginating lists, the 4-step S3 upload in one call, a Ping parser, and five runnable scripts that published this very book.</p></div>
+<div class="card"><h3>Why now</h3><p>Gumroad became merchant-of-record for all sales tax in 2025. The v2 API quietly replaced the old docs. Everything in this book is what the API actually returns <em>today</em> — not what a 2019 tutorial says.</p></div>
+</div>
+
+<div class="big">Prove the book is real</div>
+<p class="code">Every code block was run against the live API. The toolkit's <code>publish_product.py</code> is the exact pipeline that created, uploaded, and published this product:</p>
+<pre>from gumroad import Gumroad
+g = Gumroad()                        # reads GUMROAD_ACCESS_TOKEN
+prods = g.list_all("products")       # auto-paginate
+url = g.upload_file("course.pdf", open("course.pdf","rb"))
+g.create_product(name="Course", price=4900, native_type="course", files=[url])</pre>
+
+<div class="foot">
+<p>Self-published by yuhanbreeze · <a href="https://yuhanbreeze.gumroad.com/l/qmhyqi">gumroad.com/l/qmhyqi</a> · MIT-licensed toolkit · This page: <a href="https://github.com/yuhanbae/gumroad-playbook-2026">github.com/yuhanbae/gumroad-playbook-2026</a></p>
+</div>
+</div>
+</body>
+</html>
